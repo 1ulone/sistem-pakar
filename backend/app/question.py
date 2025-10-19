@@ -1,0 +1,17 @@
+question_list = [
+    "Daun padi berubah warna kuning-oranye dari pangkal ke ujung",
+    "Daun tampak kaku, tegak, dan menggulung",
+    "Tanaman kerdil dengan anakan banyak tapi malai kosong",
+    "Daun muda tampak kaku, menguning tidak merata",
+    "Tangkai malai kosong saat panen",
+    "Bercak kecil coklat kehitaman jorong sejajar tulang daun",
+    "Bercak melebar, abu-abu di tengah dan coklat di tepi",
+    "Bercak menyatu menyebabkan daun mengering dari ujung",
+    "Bercak pada pangkal batang/pelepah, abu-abu tepi coklat",
+    "Hawar jingga pada daun bawah menyebar ke atas",
+    "Bercak jingga menyatu membentuk area besar",
+    "Hawar parah pada varietas peka umur 30 HST",
+    "Bercak jamur coklat kehitaman tidak beraturan di tengah daun",
+    "Tepi bercak jamur lebih gelap dari tengah",
+    "Bercak cepat menyebar saat kondisi lembab dan hujan",
+]
