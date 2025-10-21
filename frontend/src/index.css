@@ -17,8 +17,12 @@
 }
 
 :root {
-    background: url("field.jpg") no-repeat;
+    background: url("field2.png") no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
 } 
+
+.transparent-text {
+    @apply bg-gradient-to-b from-white from-35% to-white/0 text-white/0 bg-clip-text; 
+}

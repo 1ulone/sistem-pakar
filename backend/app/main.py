@@ -49,6 +49,14 @@ async def calculate_answer(request: Request):
         "R15": {"P1": 0, "P2": 0, "P3": 1, "P4": 0, "P5": 1},
     }
 
+    saran = {
+        "P1" : { "Gunakan varietas tahan tungro.","Kendalikan wereng hijau (penyebar virus).","Tanam serempak untuk menekan populasi vektor." },
+        "P2" : { "Gunakan benih bebas jamur.","Lakukan rotasi tanam (hindari padi terus-menerus).","Keringkan lahan sementara bila terlalu lembap."},
+        "P3" : { "Hindari pemupukan N berlebih (urea).","Gunakan varietas tahan blas.","Kurangi kelembapan (atur jarak tanam, drainase)."},
+        "P4" : { "Pilih lokasi atau waktu tanam yang kurang mendukung perkembangan penyakit (tidak terlalu lembap/panas).","Rotasi varietas untuk mencegah adaptasi patogen." },
+        "P5" : { "Simpan benih dalam kondisi kering.","Hindari kelembapan tinggi dan genangan air.","Bersihkan sisa jerami atau daun sakit setelah panen."},
+    }
+
     penyakits = ["P1", "P2", "P3", "P4", "P5"]
     scores = { p:0 for p in penyakits }
 
@@ -59,13 +67,17 @@ async def calculate_answer(request: Request):
             if id in rules and rules[id][penyakit] == 1 and value == 1:
                 scores[penyakit] += 1
 
-    max_score = max(scores.values()) if scores else 0
-    if max_score != 0:
-        most_likely = [d for d, s in scores.items() if s == max_score]
-    else:
-        most_likely = []
+    counts = {p: sum(1 for r in rules.values() if r[p] == 1) for p in penyakits}
+    scores_normalized = {p: scores[p] / counts[p] if counts[p] else 0 for p in penyakits}
+
+    max_score = max(scores_normalized.values()) if scores_normalized else 0
+    most_likely = [d for d, s in scores_normalized.items() if s == max_score]
+    saran_out = [saran[p] for p in most_likely]
+
+    print(scores)
 
     return {
         "most_likely": most_likely,
         "max_score": max_score,
+        "saran": saran_out 
     }

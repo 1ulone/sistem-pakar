@@ -4,7 +4,7 @@ export default forwardRef(function MainInput({ question, options, radio_name, on
     const input = ref ? ref : useRef();
 
     return (
-        <div className="text-xl p-4 my-4 bg-gray-100 rounded-lg shadow-md group w-3/4 mx-auto hover:bg-gray-600 duration-200 ease-in-out hover:shadow-xl">
+        <div className="text-xl p-4 my-4 bg-gray-100/20 backdrop-blur-xl rounded-lg shadow-md group w-3/4 mx-auto hover:bg-black/40 duration-200 ease-in-out hover:shadow-xl">
             <p className="my-1 italic group-hover:text-white duration-200 ease-in-out">{question}</p>
             <div className="flex gap-4" ref={input}>
                 {options.map((o, i)=> (
